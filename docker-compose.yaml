@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  netflix_api:
+    build: ./netflix_api
+    container_name: netflix_api_c
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./netflix_api:/src/app
+      - /src/app/node_modules
+  netflix_ui:
+    build: ./netflix-ui
+    container_name: netflix-ui_c
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
